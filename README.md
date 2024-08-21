@@ -4,7 +4,7 @@ Usage example:
 
 ```yaml
 - name: Execute SSM Command
-  uses: ./.github/actions/execute-ssm-command
+  uses: ordinov/aws-ssm-send-command-await@main
   with:
     aws-region: "eu-west-1"
     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
