@@ -61,7 +61,7 @@ runs:
       id: execute_command
       shell: bash
       run: |
-        ESCAPED_COMMAND=$(echo "${{ inputs.command }}" | sed 's/\"/\\\"/g')
+        ESCAPED_COMMAND=$(echo "${{ inputs.command }}" | sed ':a;N;$!ba;s/\n/ /g' | sed 's/\"/\\\"/g')
         COMMAND_ID=$(aws ssm send-command \
           --instance-id $INSTANCE_ID \
           --document-name "AWS-RunShellScript" \
